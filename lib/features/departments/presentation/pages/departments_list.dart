@@ -21,7 +21,7 @@ class DepartmentsList extends StatelessWidget {
       create: (_) => sl<DepartmentBloc>()..add(OnDepartmentsRequestedEvent()),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
           child: BlocBuilder<DepartmentBloc, DepartmentState>(
             builder: (context, state) {
               if (state is Loading) {

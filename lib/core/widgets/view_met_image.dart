@@ -5,12 +5,10 @@ class ViewMetImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: 400,
+    return SizedBox.expand(
       child: Image.asset(
           "assets/MET.jpg",
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
           color: const Color.fromRGBO(117, 117, 117, 0.5),
           colorBlendMode: BlendMode.modulate
       ),

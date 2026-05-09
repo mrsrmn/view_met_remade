@@ -18,8 +18,6 @@ class PiecePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.red,
         title: const Text("Piece"),
       ),
       body: SingleChildScrollView(

@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class PieceLinkWidget extends StatelessWidget {
@@ -11,12 +11,16 @@ class PieceLinkWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 6, 0, 0),
+      padding: const EdgeInsets.fromLTRB(12, 6, 12, 0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Object URL: ",
-            style: GoogleFonts.merriweatherSans(fontSize: 20, color: Colors.red),
+          const SizedBox(
+            width: 130,
+            child: Text(
+              "Object URL: ",
+              style: TextStyle(fontSize: 16, color: Colors.red),
+            ),
           ),
           RichText(
             text: TextSpan(
@@ -25,7 +29,7 @@ class PieceLinkWidget extends StatelessWidget {
                 ..onTap = () async {
                   await launch(link, forceSafariVC: false);
                 },
-              style: GoogleFonts.merriweatherSans(fontSize: 20, color: Colors.blue),
+              style: const TextStyle(fontSize: 16, color: Colors.blue),
             ),
           ),
         ],

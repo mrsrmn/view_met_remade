@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SearchWidget extends StatelessWidget {
 
@@ -10,7 +9,7 @@ class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 280, 0, 20),
+      padding: const EdgeInsets.fromLTRB(0, 200, 0, 20),
       child: Align(
           alignment: Alignment.bottomCenter,
           child: SizedBox(
@@ -33,7 +32,7 @@ class SearchWidget extends StatelessWidget {
                     ),
                   ),
                   filled: true,
-                  hintStyle: GoogleFonts.merriweatherSans(color: Colors.black),
+                  hintStyle: TextStyle(color: Colors.black),
                   hintText: "Search View MET",
                   fillColor: Colors.white
               ),

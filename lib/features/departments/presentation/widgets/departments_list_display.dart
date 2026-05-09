@@ -18,7 +18,13 @@ class DepartmentsListDisplay extends StatelessWidget {
       scrollDirection: Axis.vertical,
       itemCount: departments.length,
       itemBuilder: (BuildContext context, int index) {
-        return DepartmentCard(department: departments[index]);
+        return SafeArea(
+          top: false,
+          left: false,
+          right: false,
+          bottom: index + 1 == departments.length,
+          child: DepartmentCard(department: departments[index]),
+        );
       },
     );
   }

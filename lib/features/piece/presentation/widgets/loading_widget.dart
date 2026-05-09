@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({Key? key}) : super(key: key);
@@ -6,10 +6,9 @@ class LoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: SizedBox(
-        height: 50,
-        width: 50,
-        child: CircularProgressIndicator(),
+      child: CupertinoActivityIndicator(
+        radius: 12,
+        color: CupertinoColors.white,
       ),
     );
   }

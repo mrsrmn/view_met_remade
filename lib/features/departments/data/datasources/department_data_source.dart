@@ -52,13 +52,12 @@ class DepartmentDataSourceImpl extends DepartmentDataSource {
     if (response.statusCode == 200) {
       Map body = json.decode(response.body);
       List<Piece> pieces = [];
+      List objectIDs = body["objectIDs"] ?? [];
 
-      for (var pieceObjectId in body["objectIDs"]) {
+      for (var pieceObjectId in objectIDs.take(20)) {
         var piece = await pieceRepository.getPiece(pieceObjectId);
         piece.fold(
-          (failure) {
-            throw CacheFailure();
-          },
+          (failure) {},
           (pieceReceived) {
             pieces.add(pieceReceived);
           }

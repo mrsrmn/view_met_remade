@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/view_met_text.dart';
@@ -26,53 +26,46 @@ class AboutPage extends StatelessWidget {
             )
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const ViewMetText(),
-              Text("Made with Flutter by MakufonSkifto", style: GoogleFonts.merriweatherSans(fontSize: 18, color: Colors.white.withOpacity(.90))),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Text("View MET has no connections with\n The Metropolitan Museum of Art itself whatsoever.", textAlign: TextAlign.center,style: GoogleFonts.merriweather(fontSize: 15, color: Colors.white.withOpacity(.90))),
-                  )
-              ),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 50, 0, 20),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        style: GoogleFonts.merriweatherSans(fontSize: 15, color: Colors.white.withOpacity(.90)),
-                        children: [
-                          const TextSpan(
-                            text: "Special thanks to ",
+              Expanded(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: TextStyle(fontSize: 16, color: Colors.white.withAlpha(230)),
+                      children: [
+                        const TextSpan(
+                          text: "Made by humans in ",
+                        ),
+                        TextSpan(
+                          text: "Duna Yazılım & Danışmanlık",
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () async {
+                              await launchUrl(
+                                Uri.parse("https://dunayazilim.com.tr")
+                              );
+                            },
+                          style: const TextStyle(
+                            decoration: TextDecoration.underline
                           ),
-                          TextSpan(
-                            text: "metmuseum",
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async {
-                                await launch("https://metmuseum.github.io/", forceSafariVC: false);
-                              },
-                            style: GoogleFonts.merriweatherSans(
-                                color: Colors.blue
-                            ),
-                          ),
-                          const TextSpan(
-                            text: " for providing all the information used in View MET",
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  )
+                  ),
+                ),
               ),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 70, 0, 20),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Text("Version 2.0.0a", textAlign: TextAlign.center,style: GoogleFonts.merriweatherSans(fontSize: 15, color: Colors.white.withOpacity(.90))),
+              Expanded(
+                child: Text(
+                  "ViewMET has no connections with The Metropolitan Museum of Art itself whatsoever.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white.withAlpha(230)
                   )
-              ),
+                ),
+              )
             ],
           ),
         )

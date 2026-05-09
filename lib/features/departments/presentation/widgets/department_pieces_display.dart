@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../piece/domain/entities/piece.dart';
+import '../../../piece/presentation/widgets/piece_card.dart';
 
 class DepartmentPiecesDisplay extends StatelessWidget {
   final List<Piece> pieces;
@@ -12,6 +13,11 @@ class DepartmentPiecesDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    throw UnimplementedError();
+    return ListView.builder(
+      itemCount: pieces.length,
+      itemBuilder: (context, index) {
+        return PieceCard(piece: pieces[index]);
+      },
+    );
   }
 }

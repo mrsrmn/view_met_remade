@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/about_page.dart';
@@ -10,7 +11,7 @@ class AboutButton extends StatelessWidget {
     return IconButton(
       iconSize: 30,
       color: Colors.white,
-      icon: const Icon(Icons.info),
+      icon: const Icon(CupertinoIcons.info),
       onPressed: () {
         Navigator.push(
           context,

@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:view_met_remade/features/piece/presentation/widgets/piece_display_widgets/image_widget.dart';
 
 import '../../domain/entities/piece.dart';
 import '../pages/piece_page.dart';
+import 'piece_display_widgets/image_widget.dart';
 
 class PieceCard extends StatelessWidget {
   final Piece piece;
@@ -13,32 +14,22 @@ class PieceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAlias,
-      child: Column(
-        children: [
-          ListTile(
-            leading: PieceImageWidget(
-              image: piece.primaryImageSmall,
-            ),
-            title: Text(piece.title),
-            subtitle: Text(
-              "by ${piece.artistDisplayName}",
-            ),
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.start,
-            children: [
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PiecePage(id: piece.objectID)),
-                  );
-                },
-                child: const Text("Details", style: TextStyle(color: Colors.red)),
-              ),
-            ],
-          ),
-        ],
+      child: ListTile(
+        dense: true,
+        leading: SizedBox(
+          width: 40,
+          height: 40,
+          child: PieceImageWidget(image: piece.primaryImageSmall),
+        ),
+        title: Text(piece.title, style: TextStyle(color: Colors.white.withOpacity(.90))),
+        subtitle: Text("by ${piece.artistDisplayName}"),
+        trailing: const Icon(CupertinoIcons.chevron_right),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PiecePage(id: piece.objectID)),
+          );
+        },
       ),
     );
   }
